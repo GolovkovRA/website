@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Чат</title>
+    <!-- Google Fonts Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+               :root {
+            --color-dark-blue: #2c3e50;
+            --color-blue: #3b82f6;
+            --color-light-blue: #60a5fa;
+            --color-purple: #8b5cf6;
+            --color-bg-light: #f0f9ff;
+            --color-white: #ffffff;
+            --color-text-primary: #1e293b;
+            --color-text-secondary: #475569;
+            --border-radius: 12px;
+            --font-family: 'Poppins', sans-serif;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: var(--font-family);
+            background-color: var(--color-bg-light);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .header-container {
+            background: linear-gradient(45deg, var(--color-purple), var(--color-blue));
+            color: var(--color-white);
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .logo-container {
+            width: 100px; /* Ширина логотипа */
+            height: auto;
+        }
+
+        .header-container h1 {
+            margin: 0;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-button {
+            background-color: var(--color-blue);
+            color: var(--color-white);
+            border: none;
+            padding: 10px 15px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s ease;
+	    margin-left: 100px;
+        }
+
+        .dropdown-button:hover {
+            background-color: var(--color-purple);
+	    margin-left: 100px;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--color-white);
+            min-width: 160px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            border-radius: var(--border-radius);
+	  
+        }
+
+        .dropdown-content a {
+            color: var(--color-text-primary);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--color-light-blue);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .chat-container {
+            max-width: 900px;
+            margin: 36px auto;
+            padding: 24px 16px;
+            background-color: var(--color-white);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 12px rgba(107, 114, 128, 0.15);
+        }
+
+        .chat-list-container {
+            margin-bottom: 24px;
+        }
+
+        .chat-list-container h3 {
+            margin: 0 0 12px 0;
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+
+        .chats-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .chats-list li {
+            padding: 8px;
+            border-bottom: 1px solid var(--color-light-blue);
+            transition: background 0.3s ease;
+        }
+
+        .chats-list li:hover {
+            background-color: var(--color-light-blue);
+            cursor: pointer;
+        }
+
+        .message-input-container {
+            border-top: 1px solid var(--color-light-blue);
+            padding-top: 16px;
+            margin-top: 16px;
+        }
+
+        .message-input-container p {
+            margin: 0;
+            font-weight: 500;
+            color: var(--color-text-secondary);
+        }
+
+        .footer-container {
+            background: linear-gradient(45deg, var(--color-blue), var(--color-purple));
+            color: var(--color-white);
+            padding: 14px 24px;
+            text-align: center;
+            font-weight: 600;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            box-shadow: 0 -4px 12px rgba(139, 92, 246, 0.3);
+            user-select: none;
+            margin-top: 36px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header-container" role="banner">
+        <img src="logo.jpg" alt="Логотип сайта" class="logo-container" />
+        <h1>Страница с чатом</h1>
+        <div class="dropdown">
+            <button class="dropdown-button">Меню</button>
+            <div class="dropdown-content">
+                <a href="index.html">Главная страница</a>
+                <a href="login.html">Авторизация</a>
+                <a href="privacy.html">Политика конфиденциальности</a>
+                <a href="register.html">Форма регистрации</a>
+            </div>
+        </div>
+    </header>
+
+   
+        <div class="message-input-container">
+            <p>Здесь будет поток ввода сообщения или чат-бот.</p>
+        </div>
+    </main>
+
+    <footer class="footer-container" role="contentinfo">
+        <p>подвал</p>
+    </footer>
+</body>
+</html>

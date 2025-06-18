@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Главная с регистрацией</title>
+    <!-- Google Fonts Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+            --color-dark-blue: #2c3e50;
+            --color-blue: #3b82f6;
+            --color-light-blue: #60a5fa;
+            --color-purple: #8b5cf6;
+            --color-bg-light: #f0f9ff;
+            --color-white: #ffffff;
+            --color-text-primary: #1e293b;
+            --color-text-secondary: #475569;
+            --border-radius: 12px;
+            --font-family: 'Poppins', sans-serif;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: var(--font-family);
+            background-color: var(--color-bg-light);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            color: var(--color-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover,
+        a:focus {
+            color: var(--color-purple);
+            outline: none;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 24px 16px;
+        }
+
+        .header-container {
+            background: linear-gradient(45deg, var(--color-purple), var(--color-blue));
+            color: var(--color-white);
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            width: 100px; /* Ширина логотипа */
+            height: auto;
+        }
+
+        .title-container {
+            font-size: 1.25rem;
+            font-weight: 600;
+            opacity: 0.9;
+            user-select: none;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-button {
+            background-color: var(--color-blue);
+            color: var(--color-white);
+            border: none;
+            padding: 10px 15px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s ease;
+	    margin-left: 100px;
+        }
+
+        .dropdown-button:hover {
+            background-color: var(--color-purple);
+	    margin-left: 100px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--color-white);
+            min-width: 160px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            border-radius: var(--border-radius);
+        }
+
+        .dropdown-content a {
+            color: var(--color-text-primary);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--color-light-blue);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .main-container {
+            margin-top: 36px;
+            margin-bottom: 36px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .info-container {
+            background-color: var(--color-white);
+            border: 2px solid var(--color-light-blue);
+            border-radius: var(--border-radius);
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(107, 114, 128, 0.15);
+            color: var(--color-text-secondary);
+            font-weight: 500;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            transition: box-shadow 0.3s ease;
+        }
+        .info-container:hover,
+        .info-container:focus-within {
+            box-shadow: 0 8px 20px rgba(107, 114, 128, 0.3);
+        }
+
+        .footer-container {
+            background: linear-gradient(45deg, var(--color-blue), var(--color-purple));
+            color: var(--color-white);
+            padding: 14px 24px;
+            text-align: center;
+            font-weight: 600;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            box-shadow: 0 -4px 12px rgba(139, 92, 246, 0.3);
+            user-select: none;
+        }
+
+        .registration-form {
+            background-color: var(--color-white);
+            border: 2px solid var(--color-blue);
+            border-radius: var(--border-radius);
+            padding: 32px 40px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            color: var(--color-text-primary);
+        }
+        .registration-form h2 {
+            margin: 0 0 16px 0;
+            font-weight: 700;
+            color: var(--color-purple);
+            text-align: center;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--color-dark-blue);
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            padding: 12px 16px;
+            border: 1.5px solid var(--color-light-blue);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            color: var(--color-text-primary);
+        }
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: var(--color-purple);
+            outline: none;
+            box-shadow: 0 0 6px var(--color-purple);
+        }
+
+        button[type="submit"] {
+            background: linear-gradient(45deg, var(--color-purple), var(--color-blue));
+            border: none;
+            padding: 14px 0;
+            border-radius: var(--border-radius);
+            color: var(--color-white);
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(139, 92, 246, 0.6);
+        }
+        button[type="submit"]:hover,
+        button[type="submit"]:focus {
+            background: linear-gradient(45deg, var(--color-blue), var(--color-purple));
+            transform: scale(1.05);
+            outline: none;
+        }
+        @media (max-width: 600px) {
+            .header-container {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+                border-radius: 0;
+                padding: 16px;
+            }
+
+            .title-container {
+                font-size: 1rem;
+            }
+
+            .info-container {
+                padding: 16px;
+                font-size: 1rem;
+                max-width: 100%;
+                margin: 0 8px;
+            }
+
+            .footer-container {
+                padding: 12px 16px;
+                font-size: 0.9rem;
+                border-radius: 0;
+            }
+
+            .registration-form {
+                padding: 24px 20px;
+            }
+        }
+
+        .info-container:focus-within,
+        input:focus {
+            outline-offset: 4px;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header-container" role="banner">
+        <img src="logo.jpg" alt="Логотип сайта" class="logo-container" />
+        <div class="title-container" tabindex="0">Название</div>
+        <div class="dropdown">
+            <button class="dropdown-button">Меню</button>
+            <div class="dropdown-content">
+           <a href="index.html">Главная страница</a>
+                <a href="login.html">Авторизация</a>
+                <a href="privacy.html">Политика конфиденциальности</a>
+ 	        <a href="chat.html">Чат бот</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container" role="main">
+        <form class="registration-form" aria-label="Форма регистрации">
+            <h2>Регистрация</h2>
+            <div class="form-group">
+                <label for="name">Имя</label>
+                <input type="text" id="name" name="name" placeholder="Введите ваше имя" required />
+            </div>
+            <div class="form-group">
+                <label for="email">Электронная почта</label>
+                <input type="email" id="email" name="email" placeholder="example@mail.com" required />
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль</label>
+                <input type="password" id="password" name="password" placeholder="Введите пароль" required />
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Подтверждение пароля</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Повторите пароль" required />
+            </div>
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+    </main>
+
+    <footer class="footer-container" role="contentinfo" tabindex="0">
+        <p>Подвал</p>
+    </footer>
+</body>
+</html>
