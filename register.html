@@ -31,6 +31,9 @@
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Позволяет растянуть тело на всю высоту экрана */
         }
 
         a {
@@ -53,7 +56,7 @@
         .header-container {
             background: linear-gradient(45deg, var(--color-purple), var(--color-blue));
             color: var(--color-white);
-            padding: 20px 24px;
+            padding: 12px 24px; /* уменьшена высота шапки */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -65,8 +68,9 @@
         }
 
         .logo-container {
-            width: 100px; /* Ширина логотипа */
+            width: 150px; /* увеличен размер логотипа */
             height: auto;
+            mix-blend-mode: multiply; /* Убираем фон */
         }
 
         .title-container {
@@ -85,17 +89,17 @@
             background-color: var(--color-blue);
             color: var(--color-white);
             border: none;
-            padding: 10px 15px;
+            padding: 12px 20px; /* увеличен размер кнопки */
             border-radius: var(--border-radius);
             cursor: pointer;
             font-weight: 600;
+            font-size: 1.25rem; /* увеличен размер шрифта */
             transition: background 0.3s ease;
-	    margin-left: 100px;
+            margin-left: 90px;
         }
 
         .dropdown-button:hover {
             background-color: var(--color-purple);
-	    margin-left: 100px;
         }
 
         .dropdown-content {
@@ -129,6 +133,7 @@
             margin-bottom: 36px;
             display: flex;
             justify-content: center;
+            flex: 1; /* Позволяет занять оставшееся пространство */
         }
 
         .info-container {
@@ -260,26 +265,30 @@
         input:focus {
             outline-offset: 4px;
         }
+#message {
+            display: none;
+            color: green;
+        }
 
     </style>
 </head>
 <body>
     <header class="header-container" role="banner">
-        <img src="logo.jpg" alt="Логотип сайта" class="logo-container" />
-        <div class="title-container" tabindex="0">Название</div>
+        <img src="logo.gif" alt="Логотип сайта" class="logo-container" />
+        <div class="title-container" tabindex="0"></div>
         <div class="dropdown">
             <button class="dropdown-button">Меню</button>
             <div class="dropdown-content">
-           <a href="index.html">Главная страница</a>
+                <a href="index.html">Главная страница</a>
                 <a href="login.html">Авторизация</a>
                 <a href="privacy.html">Политика конфиденциальности</a>
- 	        <a href="chat.html">Чат бот</a>
+                <a href="chat.html">Чат бот</a>
             </div>
         </div>
     </header>
 
     <main class="main-container" role="main">
-        <form class="registration-form" aria-label="Форма регистрации">
+        <form class="registration-form" aria-label="Форма регистрации" onsubmit="showSuccessMessage(event)">
             <h2>Регистрация</h2>
             <div class="form-group">
                 <label for="name">Имя</label>
@@ -298,11 +307,20 @@
                 <input type="password" id="confirm-password" name="confirm-password" placeholder="Повторите пароль" required />
             </div>
             <button type="submit">Зарегистрироваться</button>
+            <div id="success-message" style="display:none; color: green;">Вы успешно зарегистрировались!</div>
         </form>
     </main>
 
     <footer class="footer-container" role="contentinfo" tabindex="0">
-        <p>Подвал</p>
+        <p>Выполнили: Головков Роман, Винокуров Дмитрий, Шишмарёв Константин, Гришаков Александр</p>
+        <p>ГБПОУ ИО "АПЭТ"</p>
     </footer>
+
+    <script>
+        function showSuccessMessage(event) {
+            event.preventDefault(); // Отменяем стандартное поведение формы
+            document.getElementById('success-message').style.display = 'block'; // Отображаем сообщение
+        }
+    </script>
 </body>
 </html>

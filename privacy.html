@@ -31,12 +31,15 @@
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Позволяет растянуть тело на всю высоту экрана */
         }
 
         .header-container {
             background: linear-gradient(45deg, var(--color-purple), var(--color-blue));
             color: var(--color-white);
-            padding: 20px 24px;
+            padding: 12px 24px; /* уменьшена высота шапки */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -44,8 +47,9 @@
         }
 
         .logo-container {
-            width: 100px; /* Ширина логотипа */
+            width: 150px; /* увеличен размер логотипа */
             height: auto;
+            mix-blend-mode: multiply; /* Убираем фон */
         }
 
         .header-container h1 {
@@ -58,21 +62,21 @@
             position: relative;
         }
 
-             .dropdown-button {
+        .dropdown-button {
             background-color: var(--color-blue);
             color: var(--color-white);
             border: none;
-            padding: 10px 15px;
+            padding: 12px 20px; /* увеличен размер кнопки */
             border-radius: var(--border-radius);
             cursor: pointer;
             font-weight: 600;
+            font-size: 1.25rem; /* увеличен размер шрифта */
             transition: background 0.3s ease;
-	    margin-left: 100px;
+            margin-left: 90px; /* Подвинут чуть влево */
         }
 
         .dropdown-button:hover {
             background-color: var(--color-purple);
-	    margin-left: 100px;
         }
 
         .dropdown-content {
@@ -108,6 +112,7 @@
             background-color: var(--color-white);
             border-radius: var(--border-radius);
             box-shadow: 0 4px 12px rgba(107, 114, 128, 0.15);
+            flex: 1; /* Позволяет занять оставшееся пространство */
         }
 
         .info-section {
@@ -139,23 +144,32 @@
 </head>
 <body>
     <header class="header-container" role="banner">
-        <img src="logo.jpg" alt="Логотип сайта" class="logo-container" />
+        <img src="logo.gif" alt="Логотип сайта" class="logo-container" />
         <h1>Политика конфиденциальности</h1>
         <div class="dropdown">
             <button class="dropdown-button">Меню</button>
             <div class="dropdown-content">
-             <a href="index.html">Главная страница</a>
+                <a href="index.html">Главная страница</a>
                 <a href="login.html">Авторизация</a>
                 <a href="register.html">Форма регистрации</a>
- 	        <a href="chat.html">Чат бот</a>
+                <a href="chat.html">Чат бот</a>
             </div>
         </div>
     </header>
 
     <main class="content-container" role="main">
         <div class="info-section">
-            <p>Здесь вы можете найти информацию о том, как мы собираем, используем и защищаем ваши личные данные.</p>
-            <p>Мы ценим вашу конфиденциальность и стремимся обеспечить безопасность вашей информации.</p>
+            <h2>Сбор и использование информации</h2>
+            <p>Мы собираем информацию, которую вы предоставляете нам при регистрации на нашем сайте, включая ваше имя, адрес электронной почты и другую личную информацию. Эта информация используется для предоставления вам услуг и улучшения нашего сервиса.</p>
+            
+            <h2>Защита информации</h2>
+            <p>Мы принимаем разумные меры для защиты вашей личной информации от несанкционированного доступа, использования или раскрытия. Однако, ни один метод передачи по Интернету или метод электронного хранения не является на 100% безопасным.</p>
+            
+            <h2>Раскрытие информации третьим лицам</h2>
+            <p>Мы не продаем, не обмениваем и не передаем вашу личную информацию третьим лицам без вашего согласия, за исключением случаев, когда это требуется по закону.</p>
+            
+            <h2>Изменения в политике конфиденциальности</h2>
+            <p>Мы можем время от времени обновлять нашу политику конфиденциальности. Мы уведомим вас о любых изменениях, разместив обновленную политику на этой странице.</p>
         </div>
     </main>
 
@@ -164,7 +178,8 @@
     </div>
 
     <footer class="footer-container" role="contentinfo">
-        <p>подвал</p>
+        <p>Выполнили: Головков Роман, Винокуров Дмитрий, Шишмарёв Константин, Гришаков Александр</p>
+        <p>ГБПОУ ИО "АПЭТ"</p>
     </footer>
 </body>
 </html>

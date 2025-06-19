@@ -52,7 +52,7 @@
         .header-container {
             background: linear-gradient(45deg, var(--color-purple), var(--color-blue));
             color: var(--color-white);
-            padding: 20px 24px;
+            padding: 12px 24px; /* уменьшена высота шапки */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -64,8 +64,9 @@
         }
 
         .logo-container {
-            width: 100px; /* Ширина логотипа */
-            height: auto; /* Автоматическая высота для сохранения пропорций */
+            width: 180px; /* увеличен размер логотипа */
+            height: auto;
+            mix-blend-mode: multiply;
         }
 
         .title-container {
@@ -76,27 +77,25 @@
             text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
 
-    
         .dropdown {
             position: relative;
-            
         }
 
-             .dropdown-button {
+        .dropdown-button {
             background-color: var(--color-blue);
             color: var(--color-white);
             border: none;
-            padding: 10px 15px;
+            padding: 12px 20px;
             border-radius: var(--border-radius);
             cursor: pointer;
             font-weight: 600;
+            font-size: 1.25rem;
             transition: background 0.3s ease;
-	    margin-left: 100px;
+            margin-left: 100px;
         }
 
         .dropdown-button:hover {
             background-color: var(--color-purple);
-	    margin-left: 100px;
         }
         .dropdown-content {
             display: none;
@@ -172,6 +171,12 @@
                 font-size: 1rem;
             }
 
+            .dropdown-button {
+                font-size: 1.1rem;
+                padding: 10px 16px;
+                margin-left: 0;
+            }
+
             .info-container {
                 padding: 16px;
                 font-size: 1rem;
@@ -194,28 +199,36 @@
 </head>
 <body>
     <header class="header-container" role="banner">
-        <img src="logo.jpg" alt="Логотип сайта" class="logo-container" />
-        <div class="title-container" tabindex="0"><h1>Главная</h1></div>
+        <img src="logo.gif" alt="Логотип сайта" class="logo-container" />
+        <div class="title-container" tabindex="0"></div>
         <div class="dropdown">
             <button class="dropdown-button">Меню</button>
             <div class="dropdown-content">
                 <a href="login.html">Авторизация</a>
                 <a href="privacy.html">Политика конфиденциальности</a>
                 <a href="register.html">Форма регистрации</a>
- 	        <a href="chat.html">Чат бот</a>
-
+                <a href="chat.html">Чат бот</a>
             </div>
         </div>
     </header>
 
     <main class="main-container" role="main">
         <section class="info-container" tabindex="0" aria-label="Основная информация">
-            <p>Информация</p>
+            <h2>Добро пожаловать на наш сайт!</h2>
+            <p>На нашем сайте вы можете найти актуальную нормативную документацию, включая законы, постановления и стандарты. Мы стремимся предоставить вам доступ к важной информации, необходимой для вашей работы и повседневной жизни.</p>
+            <p>Вы можете воспользоваться поиском для быстрого нахождения нужных документов или просмотреть их по категориям:</p>
+            <ul>
+                <li><strong>Законодательство:</strong> Все актуальные законы и кодексы.</li>
+                <li><strong>Технические регламенты:</strong> Стандарты и требования к продукции.</li>
+                <li><strong>Санитарные нормы:</strong> Нормативы в области здравоохранения и безопасности.</li>
+            </ul>
+            <p>Следите за обновлениями, чтобы быть в курсе последних изменений в законодательстве.</p>
         </section>
     </main>
 
     <footer class="footer-container" role="contentinfo" tabindex="0">
-        <p>Подвал</p>
+        <p>Выполнили: Головков Роман, Винокуров Дмитрий, Шишмарёв Константин, Гришаков Александр</p>
+        <p>ГБПОУ ИО "АПЭТ"</p>
     </footer>
 </body>
 </html>

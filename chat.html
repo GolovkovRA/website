@@ -7,7 +7,7 @@
     <!-- Google Fonts Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
     <style>
-               :root {
+        :root {
             --color-dark-blue: #2c3e50;
             --color-blue: #3b82f6;
             --color-light-blue: #60a5fa;
@@ -31,12 +31,15 @@
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Позволяет растянуть тело на всю высоту экрана */
         }
 
         .header-container {
             background: linear-gradient(45deg, var(--color-purple), var(--color-blue));
             color: var(--color-white);
-            padding: 20px 24px;
+            padding: 12px 24px; /* уменьшена высота шапки */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -44,8 +47,9 @@
         }
 
         .logo-container {
-            width: 100px; /* Ширина логотипа */
+            width: 150px; /* увеличен размер логотипа */
             height: auto;
+            mix-blend-mode: multiply; /* Убираем фон */
         }
 
         .header-container h1 {
@@ -62,18 +66,19 @@
             background-color: var(--color-blue);
             color: var(--color-white);
             border: none;
-            padding: 10px 15px;
+            padding: 12px 20px; /* увеличен размер кнопки */
             border-radius: var(--border-radius);
             cursor: pointer;
             font-weight: 600;
+            font-size: 1.25rem; /* увеличен размер шрифта */
             transition: background 0.3s ease;
-	    margin-left: 100px;
+            margin-left: 90px; /* Подвинут чуть влево */
         }
 
         .dropdown-button:hover {
             background-color: var(--color-purple);
-	    margin-left: 100px;
         }
+
         .dropdown-content {
             display: none;
             position: absolute;
@@ -82,7 +87,6 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             z-index: 1;
             border-radius: var(--border-radius);
-	  
         }
 
         .dropdown-content a {
@@ -101,13 +105,23 @@
             display: block;
         }
 
-        .chat-container {
+        .main-container {
             max-width: 900px;
             margin: 36px auto;
             padding: 24px 16px;
             background-color: var(--color-white);
             border-radius: var(--border-radius);
             box-shadow: 0 4px 12px rgba(107, 114, 128, 0.15);
+            flex: 1; /* Позволяет занять оставшееся пространство */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .chat-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .chat-list-container {
@@ -163,7 +177,7 @@
 </head>
 <body>
     <header class="header-container" role="banner">
-        <img src="logo.jpg" alt="Логотип сайта" class="logo-container" />
+        <img src="logo.gif" alt="Логотип сайта" class="logo-container" />
         <h1>Страница с чатом</h1>
         <div class="dropdown">
             <button class="dropdown-button">Меню</button>
@@ -176,14 +190,17 @@
         </div>
     </header>
 
-   
-        <div class="message-input-container">
-            <p>Здесь будет поток ввода сообщения или чат-бот.</p>
+    <main class="main-container" role="main">
+        <div class="chat-container">
+            <div class="message-input-container">
+                <p>Здесь будет поток ввода сообщения или чат-бот.</p>
+            </div>
         </div>
     </main>
 
     <footer class="footer-container" role="contentinfo">
-        <p>подвал</p>
+        <p>Выполнили: Головков Роман, Винокуров Дмитрий, Шишмарёв Константин, Гришаков Александр</p>
+        <p>ГБПОУ ИО "АПЭТ"</p>
     </footer>
 </body>
 </html>

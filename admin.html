@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Админ-панель</title>
+    <!-- Google Fonts Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+            --color-dark-blue: #2c3e50;
+            --color-blue: #3b82f6;
+            --color-light-blue: #60a5fa;
+            --color-purple: #8b5cf6;
+            --color-bg-light: #f0f9ff;
+            --color-white: #ffffff;
+            --color-text-primary: #1e293b;
+            --color-text-secondary: #475569;
+            --border-radius: 12px;
+            --font-family: 'Poppins', sans-serif;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: var(--font-family);
+            background-color: var(--color-bg-light);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .header-container {
+            background: linear-gradient(45deg, var(--color-purple), var(--color-blue));
+            color: var(--color-white);
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .logo-container {
+            width: 100px;
+            height: auto;
+            mix-blend-mode: multiply; /* Убирает светлый фон у логотипа */
+        }
+
+        .header-container h1 {
+            margin: 0;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .main-container {
+            max-width: 900px;
+            margin: 36px auto;
+            padding: 24px 16px;
+            background-color: var(--color-white);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 12px rgba(107, 114, 128, 0.15);
+            flex: 1;
+        }
+
+        .section {
+            margin-bottom: 24px;
+        }
+
+        .section h2 {
+            margin: 0 0 12px 0;
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+
+        .user-list, .content-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .user-list li, .content-list li {
+            padding: 8px;
+            border-bottom: 1px solid var(--color-light-blue);
+            transition: background 0.3s ease;
+        }
+
+        .user-list li:hover, .content-list li:hover {
+            background-color: var(--color-light-blue);
+            cursor: pointer;
+        }
+
+        .footer-container {
+            background: linear-gradient(45deg, var(--color-blue), var(--color-purple));
+            color: var(--color-white);
+            padding: 14px 24px;
+            text-align: center;
+            font-weight: 600;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            box-shadow: 0 -4px 12px rgba(139, 92, 246, 0.3);
+            user-select: none;
+            margin-top: 36px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header-container" role="banner">
+        <img src="logo.gif" alt="Логотип сайта" class="logo-container" />
+        <h1>Админ-панель</h1>
+    </header>
+
+    <main class="main-container" role="main">
+        <div class="section">
+            <h2>Управление пользователями</h2>
+            <ul class="user-list">
+                <li>Пользователь 1</li>
+                <li>Пользователь 2</li>
+                <li>Пользователь 3</li>
+                <li>Пользователь 4</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Управление контентом</h2>
+            <ul class="content-list">
+                <li>Статья 1</li>
+                <li>Статья 2</li>
+                <li>Статья 3</li>
+                <li>Статья 4</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Статистика</h2>
+            <p>Количество зарегистрированных пользователей: 100</p>
+            <p>Количество активных сессий: 25</p>
+            <p>Количество сообщений в чате: 150</p>
+        </div>
+    </main>
+
+    <footer class="footer-container" role="contentinfo">
+        <p>Выполнили: Головков Роман, Винокуров Дмитрий, Шишмарёв Константин, Гришаков Александр</p>
+        <p>ГБПОУ ИО "АПЭТ"</p>
+    </footer>
+</body>
+</html>
